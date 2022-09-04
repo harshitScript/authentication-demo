@@ -1,0 +1,10 @@
+<div class="navbar-outer">
+  <div class="navbar-title">Authentication Form</div>
+  <div class="user-welcome-navbar-title">
+    Welcome <%= logged_in_user %> <% if(isAuthenticated){ %>
+    <form method="POST" action="/logout">
+      <button>logout</button>
+    </form>
+    <% } %>
+  </div>
+</div>
