@@ -13,6 +13,7 @@ jobs:
       - name: Checkout to code
         uses: actions/checkout@v3
         with:
+          # fetch all the commits in the code base from start otherwise recent commit
           fetch-depth: 0
 
       - name: Lint Dev Code Base
