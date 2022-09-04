@@ -19,7 +19,7 @@ jobs:
       - name: Checkout to codebase
         uses: actions/checkout@v3
         with:
-          fetch-depth: 0 #it will pull out all the previous commits.
+          fetch-depth: 0 
       
       - name: Lint Code Base
         uses: github/super-linter@v4
