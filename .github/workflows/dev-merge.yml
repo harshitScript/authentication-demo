@@ -3,6 +3,7 @@ name: Development Merge
 on:
   push:
     branches: ["dev"]
+    workflow_dispatch:
 
 jobs:
   merge:
@@ -19,7 +20,7 @@ jobs:
       - name: Checkout to codebase
         uses: actions/checkout@v3
         with:
-          fetch-depth: 0 
-      
+          fetch-depth: 0
+
       - name: Lint Code Base
         uses: github/super-linter@v4
