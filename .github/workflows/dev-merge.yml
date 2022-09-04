@@ -1,0 +1,25 @@
+name: Development Merge
+
+on:
+  push:
+    branches: ["dev"]
+
+jobs:
+  merge:
+    name: Merging into dev branch
+    runs-on: ubuntu-latest
+    steps:
+      - name: Merge successful
+      - run: echo Code merged successfully
+
+  linting:
+    name: Linting Code
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout to codebase
+        uses: actions/checkout@v3
+        with:
+          fetch-depth: 0 #it will pull out all the previous commits.
+      
+      - name: Lint Code Base
+        uses: github/super-linter@v4
