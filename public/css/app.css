@@ -1,0 +1,80 @@
+body {
+  padding: 0 !important;
+  margin: 0 !important;
+  color: #fff !important;
+}
+
+button,
+.btn {
+  color: #fff !important;
+  font-weight: bold !important;
+  font-size: 1rem !important;
+  background: green !important;
+  text-decoration: unset !important;
+}
+
+.navbar-outer {
+  padding: 1rem;
+  box-sizing: border-box;
+  background: green;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 1rem;
+}
+
+.navbar-title {
+  font-size: 2rem;
+  font-weight: bold;
+}
+
+.user-welcome-navbar-title {
+  font-size: 1.5rem;
+  font-weight: bold;
+}
+
+.card {
+  border-radius: 0.5rem;
+  -webkit-border-radius: 0.5rem;
+  -moz-border-radius: 0.5rem;
+  -ms-border-radius: 0.5rem;
+  -o-border-radius: 0.5rem;
+  box-shadow: 0 0 0.5rem grey;
+  padding: 1rem;
+  box-sizing: border-box;
+  background: rgb(205, 251, 205) !important;
+}
+
+.margin-auto {
+  margin: 0 auto !important;
+}
+
+.error {
+  font-size: 0.8rem;
+  color: red;
+  text-align: center;
+  padding: 0.5rem;
+  border: 1px solid red;
+  background-color: rgb(248, 185, 185);
+  border-radius: 0.5rem;
+  -webkit-border-radius: 0.5rem;
+  -moz-border-radius: 0.5rem;
+  -ms-border-radius: 0.5rem;
+  -o-border-radius: 0.5rem;
+  margin-top: 0.5rem;
+}
+
+.success {
+  font-size: 0.8rem;
+  color: rgb(0, 71, 15);
+  text-align: center;
+  padding: 0.5rem;
+  border: 1px solid rgb(0, 71, 15);
+  background-color: rgb(161, 240, 177);
+  border-radius: 0.5rem;
+  -webkit-border-radius: 0.5rem;
+  -moz-border-radius: 0.5rem;
+  -ms-border-radius: 0.5rem;
+  -o-border-radius: 0.5rem;
+  margin-top: 0.5rem;
+}

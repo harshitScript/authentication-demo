@@ -1,0 +1,40 @@
+<%- include("./includes/head.ejs") %> <%- include("./includes/nav.ejs") %>
+<div class="card w-50 margin-auto">
+  <h1 class="text-center fw-bold">Login Form</h1>
+  <% if(errorMessage){ %>
+  <p class="error"><%= errorMessage %></p>
+  <% }else if(successMessage){ %>
+  <p class="success"><%= successMessage %></p>
+  <% } %>
+  <form method="POST" action="/login">
+    <div class="p-2">
+      <input
+        type="email"
+        name="email"
+        placeholder="enter the email"
+        required
+        class="w-100 p-2"
+      />
+    </div>
+    <div class="p-2">
+      <input
+        type="password"
+        name="password"
+        placeholder="enter the password"
+        required
+        class="w-100 p-2"
+      />
+    </div>
+    <div class="p-2">
+      <button type="submit" class="w-100 p-2">Login</button>
+    </div>
+    <div>
+      <p class="text-center">OR</p>
+    </div>
+    <div class="p-2">
+      <a class="btn w-100" href="/sign-up" class="w-100 p-2">Sign-up</a>
+    </div>
+  </form>
+</div>
+
+<%-include("./includes/end.ejs") %>
