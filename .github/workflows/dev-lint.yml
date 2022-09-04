@@ -1,0 +1,19 @@
+name: GitHub Actions Demo
+on:
+  push:
+    branches: [dev]
+
+  # Allows you to run this workflow manually from the Actions tab
+  workflow_dispatch:
+
+jobs:
+  Lint-Dev:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout to code
+        uses: actions/checkout@v3
+        with:
+          fetch-depth: 0
+
+      - name: Lint Dev Code Base
+        uses: github/super-linter@v4
