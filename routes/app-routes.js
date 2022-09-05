@@ -1,28 +1,29 @@
-const { Router } = require('express')
-const { urlencoded } = require('body-parser')
-const getHomeController = require('../controllers/getHomeController')
-const getLoginFormController = require('../controllers/getLoginFormController')
-const getSignUpFormController = require('../controllers/getSignUpFormController')
-const postSignUpController = require('../controllers/postSignupController')
-const postLoginController = require('../controllers/postLoginController')
-const isAuth = require('../middleware/isAuth')
+const { Router } = require("express");
+const { urlencoded } = require("body-parser");
+const getHomeController = require("../controllers/getHomeController");
+const getLoginFormController = require("../controllers/getLoginFormController");
+const getSignUpFormController = require("../controllers/getSignUpFormController");
+const postSignUpController = require("../controllers/postSignupController");
+const postLoginController = require("../controllers/postLoginController");
+const isAuth = require("../middleware/isAuth");
+const isUnAuth = require("../middleware/isUnAuth");
 
-const appRoutes = Router()
+const appRoutes = Router();
 
-appRoutes.get('/login', getLoginFormController)
-appRoutes.post('/login', urlencoded({ extended: false }), postLoginController)
+appRoutes.get("/login", isUnAuth, getLoginFormController);
+appRoutes.post("/login", urlencoded({ extended: false }), postLoginController);
 
-appRoutes.get('/sign-up', getSignUpFormController)
+appRoutes.get("/sign-up", getSignUpFormController);
 appRoutes.post(
-  '/sign-up',
+  "/sign-up",
   urlencoded({ extended: false }),
   postSignUpController
-)
+);
 
-appRoutes.get('/home', isAuth, getHomeController)
+appRoutes.get("/home", isAuth, getHomeController);
 
 appRoutes.use((req, res) => {
-  return res.send('Page not Found.')
-})
+  return res.send("Page not Found.");
+});
 
-module.exports = appRoutes
+module.exports = appRoutes;
