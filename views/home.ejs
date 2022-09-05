@@ -1,6 +1,8 @@
 <%- include("./includes/head.ejs") %> <%- include("./includes/nav.ejs") %> <%
-if(successMessage){ %>
-<p class="success w-50 margin-auto mt-2 mb-2"><%= successMessage %></p>
+if(errorMessage){ %>
+<p class="error"><%= errorMessage %></p>
+<% }else if(successMessage){ %>
+<p class="success"><%= successMessage %></p>
 <% } %>
 <div class="card w-50 margin-auto">
   <h1 class="text-center">Yes You are Logged in.</h1>

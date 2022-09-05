@@ -7,6 +7,11 @@ const postSignUpController = require("../controllers/postSignupController");
 const postLoginController = require("../controllers/postLoginController");
 const isAuth = require("../middleware/isAuth");
 const isUnAuth = require("../middleware/isUnAuth");
+const getResetPasswordController = require("../controllers/getResetPasswordController");
+const postResetPasswordController = require("../controllers/postResetPasswordController");
+const postLogoutController = require("../controllers/postLogoutController");
+const getNewPasswordFormController = require("../controllers/getNewPasswordFormController");
+const postNewPasswordController = require("../controllers/postNewPasswordController");
 
 const appRoutes = Router();
 
@@ -19,6 +24,22 @@ appRoutes.post(
   urlencoded({ extended: false }),
   postSignUpController
 );
+
+appRoutes.get("/reset-password", getResetPasswordController);
+appRoutes.post(
+  "/reset-password",
+  urlencoded({ extended: false }),
+  postResetPasswordController
+);
+
+appRoutes.get("/new-password/:userId/:validity", getNewPasswordFormController);
+appRoutes.post(
+  "/new-password",
+  urlencoded({ extended: false }),
+  postNewPasswordController
+);
+
+appRoutes.post("/logout", postLogoutController);
 
 appRoutes.get("/home", isAuth, getHomeController);
 
