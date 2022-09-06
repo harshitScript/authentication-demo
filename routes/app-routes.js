@@ -44,7 +44,7 @@ appRoutes.post("/logout", postLogoutController);
 appRoutes.get("/home", isAuth, getHomeController);
 
 appRoutes.use((req, res) => {
-  return res.send("Page not Found.");
+  return res.redirect("/login");
 });
 
 module.exports = appRoutes;

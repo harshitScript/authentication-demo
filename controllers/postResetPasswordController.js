@@ -26,10 +26,12 @@ const postResetPasswordController = (req, res, next) => {
         to: email,
         from: process.env.SERVER_MAIL,
         subject: "Password Reset Link.",
-        text: "Follow this link to change your password( valid for only 1 hour ).",
-        html: `<a href="http://localhost:4000/new-password/${user?._id}/${
+        html: `
+        <p>This link is valid for only 1 hour.</p>
+        <a href="http://localhost:4000/new-password/${user?._id}/${
           Date.now() + 3600000
-        }"></a>`,
+        }">Click Here</a>
+        `,
       });
 
       return res.redirect("/login");

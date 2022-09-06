@@ -2,9 +2,9 @@ const User = require("../models/Users");
 const { failureCallback, generateHashedPassword } = require("../utils/helper");
 
 const postNewPasswordController = (req, res) => {
-  const { newPassword, confirmNewPassword, userId } = req.body;
+  const { newPassword, newConfirmPassword, userId } = req.body;
 
-  if (newPassword !== confirmNewPassword) {
+  if (newPassword !== newConfirmPassword) {
     req.flash("error", "Password and Confirm Password not matched.");
     return res.redirect("/reset-password");
   }

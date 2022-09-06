@@ -20,6 +20,7 @@ const getNewPasswordFormController = (req, res) => {
         docTitle: "Update Your new Password",
         errorMessage: req.flash("error")[0],
         successMessage: req.flash("success")[0],
+        userId: user?._id,
       });
     })
     .catch(failureCallback);
