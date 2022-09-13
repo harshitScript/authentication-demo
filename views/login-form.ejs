@@ -14,7 +14,9 @@
         placeholder="enter the email"
         required
         class="w-100 p-2"
+        value="<%= old_input.email %>"
       />
+      <%- include("./includes/input-error.ejs",{match_param :"email"}) %>
     </div>
     <div class="p-2">
       <input
@@ -23,8 +25,11 @@
         placeholder="enter the password"
         required
         class="w-100 p-2"
+        value="<%= old_input.password %>"
       />
+      <%- include("./includes/input-error.ejs",{match_param :"password"}) %>
     </div>
+    <%- include("./includes/csrf-token-input.ejs") %>
     <div class="p-1">
       <a href="/reset-password" class="link">Forget Password ?</a>
     </div>

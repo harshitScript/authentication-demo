@@ -3,6 +3,7 @@
   <div class="user-welcome-navbar-title">
     Welcome <%= logged_in_user %> <% if(isAuthenticated){ %>
     <form method="POST" action="/logout">
+      <%- include("./csrf-token-input.ejs") %>
       <button>logout</button>
     </form>
     <% } %>

@@ -84,3 +84,9 @@ button,
   text-decoration: unset;
   font-weight: bold;
 }
+
+.input-error {
+  color: red !important;
+  font-size: 0.8rem;
+  margin: unset !important;
+}

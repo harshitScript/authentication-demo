@@ -1,0 +1,5 @@
+<% if(!!validation_error.find((error) =>error?.param === match_param)){ %>
+<p class="input-error">
+  <%= validation_error.find((error) =>error?.param === match_param)?.msg %>
+</p>
+<% } %>

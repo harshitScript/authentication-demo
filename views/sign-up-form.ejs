@@ -14,7 +14,9 @@
         placeholder="enter the name"
         required
         class="w-100 p-2"
+        value="<%= old_input.name %>"
       />
+      <%- include("./includes/input-error.ejs",{match_param :"name"}) %>
     </div>
     <div class="p-2">
       <input
@@ -23,7 +25,9 @@
         placeholder="enter the email"
         required
         class="w-100 p-2"
+        value="<%= old_input.email %>"
       />
+      <%- include("./includes/input-error.ejs",{match_param :"email"}) %>
     </div>
     <div class="p-2">
       <input
@@ -32,7 +36,9 @@
         placeholder="enter the password"
         required
         class="w-100 p-2"
+        value="<%= old_input.password %>"
       />
+      <%- include("./includes/input-error.ejs",{match_param :"password"}) %>
     </div>
     <div class="p-2">
       <input
@@ -41,8 +47,12 @@
         placeholder="confirm the password"
         required
         class="w-100 p-2"
+        value="<%= old_input.confirmPassword %>"
       />
+      <%- include("./includes/input-error.ejs",{match_param :"confirmPassword"})
+      %>
     </div>
+    <%- include("./includes/csrf-token-input.ejs") %>
     <div class="p-2">
       <button class="w-100 p-2">Sign-up</button>
     </div>

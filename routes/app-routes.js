@@ -12,16 +12,27 @@ const postResetPasswordController = require("../controllers/postResetPasswordCon
 const postLogoutController = require("../controllers/postLogoutController");
 const getNewPasswordFormController = require("../controllers/getNewPasswordFormController");
 const postNewPasswordController = require("../controllers/postNewPasswordController");
+const { body } = require("express-validator");
+const {
+  loginFormValidationSchema,
+  signUpValidationSchema,
+} = require("../utils/validation-schemas");
 
 const appRoutes = Router();
 
 appRoutes.get("/login", isUnAuth, getLoginFormController);
-appRoutes.post("/login", urlencoded({ extended: false }), postLoginController);
+appRoutes.post(
+  "/login",
+  urlencoded({ extended: false }),
+  loginFormValidationSchema,
+  postLoginController
+);
 
 appRoutes.get("/sign-up", getSignUpFormController);
 appRoutes.post(
   "/sign-up",
   urlencoded({ extended: false }),
+  signUpValidationSchema,
   postSignUpController
 );
 

@@ -10,6 +10,8 @@ config();
 const path = require("path");
 const sessions = require("express-session");
 const connectFlash = require("connect-flash");
+const csrf = require("csurf");
+const { urlencoded } = require("body-parser");
 
 //* SESSION STORE
 const mongoDbSessionStore = require("connect-mongodb-session");
@@ -42,6 +44,7 @@ server.use(
 );
 //* connectFlash() creates a new cookie in session as soon as the first request hit the server.
 server.use(connectFlash());
+server.use(urlencoded({ extended: false }), csrf());
 server.use(authenticatedUserProvider);
 server.use(commonOptionsToViewProvider);
 server.use(appRoutes);
