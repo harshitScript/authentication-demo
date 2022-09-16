@@ -1,5 +1,4 @@
 const User = require("../models/Users");
-const { failureCallback } = require("../utils/helper");
 const { createTransport } = require("nodemailer");
 const sendGridTransport = require("nodemailer-sendgrid-transport");
 
@@ -14,6 +13,11 @@ const transport = createTransport(
 
 const postResetPasswordController = (req, res, next) => {
   const { email } = req.body;
+
+
+  const failureCallback = (error) => {
+    return next(error);
+  };
 
   User.findOne({ email })
     .then((user) => {

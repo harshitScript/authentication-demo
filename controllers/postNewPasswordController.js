@@ -1,5 +1,5 @@
 const User = require("../models/Users");
-const { failureCallback, generateHashedPassword } = require("../utils/helper");
+const { generateHashedPassword } = require("../utils/helper");
 
 const postNewPasswordController = (req, res) => {
   const { newPassword, newConfirmPassword, userId } = req.body;
@@ -8,6 +8,10 @@ const postNewPasswordController = (req, res) => {
     req.flash("error", "Password and Confirm Password not matched.");
     return res.redirect("/reset-password");
   }
+
+  const failureCallback = (error) => {
+    return next(error);
+  };
 
   User.findById(userId)
     .then((user) => {

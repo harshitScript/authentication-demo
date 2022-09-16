@@ -26,6 +26,7 @@ const appRoutes = require("./routes/app-routes");
 const commonOptionsToViewProvider = require("./middleware/commonOptionsToViewProvider");
 const { connectMongoDb } = require("./database/mongo-db");
 const authenticatedUserProvider = require("./middleware/authenticatedUserProvider");
+const expressGlobalErrorHandlingMiddleware = require("./middleware/expressGlobalErrorHandlingMiddleware");
 
 server.set("view engine", "ejs");
 server.set("views", path.join(__dirname, "views"));
@@ -48,6 +49,7 @@ server.use(urlencoded({ extended: false }), csrf());
 server.use(authenticatedUserProvider);
 server.use(commonOptionsToViewProvider);
 server.use(appRoutes);
+server.use(expressGlobalErrorHandlingMiddleware);
 
 const connectMongoDbFailure = () => {
   console.log("Unable to connect database.");

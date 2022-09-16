@@ -1,8 +1,11 @@
 const User = require("../models/Users");
-const { failureCallback } = require("../utils/helper");
 
 const getNewPasswordFormController = (req, res) => {
   const { userId, validity } = req.params;
+
+  const failureCallback = (error) => {
+    return next(error);
+  };
 
   User.findById(userId)
     .then((user) => {

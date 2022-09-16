@@ -1,5 +1,5 @@
 const Users = require("../models/Users");
-const { failureCallback, generateHashedPassword } = require("../utils/helper");
+const { generateHashedPassword } = require("../utils/helper");
 const { validationResult } = require("express-validator");
 
 const postLoginController = (req, res) => {
@@ -14,6 +14,10 @@ const postLoginController = (req, res) => {
   }
 
   const hashedPassword = generateHashedPassword({ password });
+
+  const failureCallback = (error) => {
+    return next(error);
+  };
 
   Users.findOne({ email, password: hashedPassword })
     .then((user) => {
